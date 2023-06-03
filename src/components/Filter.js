@@ -8,15 +8,15 @@ export default function Filter() {
         style={{
           borderWidth: 1,
           borderRadius: 50,
-          paddingHorizontal: 8,
-          paddingVertical: 2,
+          paddingHorizontal: 10,
+          paddingVertical: 3,
           marginRight: 8,
         }}
       >
         <Text
           style={{
             fontSize: 16,
-            fontFamily: "Helvetica",
+            fontFamily: "HelveticaLight",
             color: "#000",
           }}
         >
@@ -32,11 +32,12 @@ export default function Filter() {
         width: "100%",
         backgroundColor: "#F6F6F6",
         paddingHorizontal: 28,
-        paddingVertical: 18,
+        paddingVertical: 16,
       }}
     >
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", justifyContent: 'space-between', alignItems: 'center' }}>
         <FilterButton name='Filtruj'> <FilterSvg /></FilterButton>
+        <Text style={{fontFamily: 'Helvetica', color: '#595959'}}>Znaleziono 15 wyników</Text>
       </View>
     </View>
   );

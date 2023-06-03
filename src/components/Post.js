@@ -15,10 +15,10 @@ export function Post() {
       <View style={{ width: "100%", paddingHorizontal: 28, paddingTop: 40 }}>
         <Text
           style={{
-            fontSize: 20,
-            fontFamily: "HelveticaBold",
+            fontSize: 18,
+            fontFamily: "Helvetica",
             color: "#000000",
-            lineHeight: 20,
+            lineHeight: 18,
           }}
         >
           {data.name}
@@ -26,9 +26,10 @@ export function Post() {
         <Text
           style={{
             fontSize: 14,
-            fontFamily: "Helvetica",
+            fontFamily: "HelveticaLight",
             color: "#A3A3A3",
             lineHeight: 14,
+            marginTop: 2
           }}
         >
           {data.time}
@@ -52,13 +53,12 @@ export function Post() {
             marginTop: 16,
           }}
         >
-          <View style={{ flexDirection: "row" }}>
+          <View style={{ flexDirection: "row", alignItems:'center' }}>
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 16,
                 fontFamily: "Helvetica",
                 color: "#000",
-                lineHeight: 18,
               }}
             >
               {data.leaves}
@@ -70,10 +70,10 @@ export function Post() {
             )}
             <Text
               style={{
-                fontSize: 18,
+                fontSize: 16,
                 fontFamily: "Helvetica",
                 color: "#000",
-                lineHeight: 18,
+                marginLeft: 16
               }}
             >
               {data.comments}

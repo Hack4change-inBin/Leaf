@@ -14,9 +14,16 @@ export default function Header() {
       }}
     >
       <HeaderLogoSvg />
-      <Image
-        source={require("../../assets/images/example-profile-avatar.png")}
-      />
+
+      <View style={{ flexDirection: "row-reverse" }}>
+        <Image
+          source={require("../../assets/images/example-profile-avatar.png")}
+        />
+        <View style={{ justifyContent: "center", alignItems: "flex-end", marginRight: 10 }}>
+          <Text style={{color: '#232323', fontFamily: 'Helvetica'}}>Marta</Text>
+          <Text style={{color: '#797979', fontFamily: 'HelveticaLight'}}>Zobacz swój profil</Text>
+        </View>
+      </View>
     </View>
   );
 }

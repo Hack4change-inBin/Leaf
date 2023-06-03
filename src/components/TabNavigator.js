@@ -91,7 +91,7 @@ function TabBar({ state, descriptors, navigation }) {
 export default function TabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false }}
+    screenOptions={{ headerShown: false }}
       tabBar={(props) => <TabBar {...props} />}
     >
       <Tab.Screen name='Home' component={HomeView}></Tab.Screen>
