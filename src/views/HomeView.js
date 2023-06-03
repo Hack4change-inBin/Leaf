@@ -17,7 +17,7 @@ import Filter from "../components/Filter";
 
 import { Post } from "../components/Post";
 
-function FilterButton({title, onPress}) {
+function FilterButton({ title, onPress }) {
   return (
     <TouchableOpacity
       style={{
@@ -26,7 +26,7 @@ function FilterButton({title, onPress}) {
         paddingHorizontal: 10,
         paddingVertical: 3,
         marginRight: 8,
-        marginTop: 8
+        marginTop: 8,
       }}
       onPress={onPress}
     >
@@ -105,16 +105,16 @@ export default function HomeView() {
           <View
             style={{
               flexDirection: "row",
-              flexWrap: 'wrap',
+              flexWrap: "wrap",
               marginHorizontal: 28,
               marginTop: 8,
             }}
           >
-            <FilterButton title="Dziś" />
-            <FilterButton title="Tydzień" />
-            <FilterButton title="Miesiąc" />
-            <FilterButton title="Rok" />
-            <FilterButton title="Wszystkie" />
+            <FilterButton title='Dziś' />
+            <FilterButton title='Tydzień' />
+            <FilterButton title='Miesiąc' />
+            <FilterButton title='Rok' />
+            <FilterButton title='Wszystkie' />
           </View>
 
           <Text
@@ -148,7 +148,7 @@ export default function HomeView() {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: 20,
-                borderRadius: 8
+                borderRadius: 8,
               }}
             >
               <Text
@@ -171,7 +171,7 @@ export default function HomeView() {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: 20,
-                borderRadius: 8
+                borderRadius: 8,
               }}
             >
               <Text

@@ -19,11 +19,11 @@ export function CommentSvg(props) {
     </Svg>
 }
   
-export function ShareSvg(props) {
+export function ShareSvg({stroke = '#232323', ...props}) {
     return <Svg strokeWidth="2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <Path d="M3.33331 10V16.6667C3.33331 17.1087 3.50891 17.5326 3.82147 17.8452C4.13403 18.1577 4.55795 18.3333 4.99998 18.3333H15C15.442 18.3333 15.8659 18.1577 16.1785 17.8452C16.4911 17.5326 16.6666 17.1087 16.6666 16.6667V10" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <Path d="M13.3334 5.00008L10 1.66675L6.66669 5.00008" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <Path d="M10 1.66675V12.5001" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M3.33331 10V16.6667C3.33331 17.1087 3.50891 17.5326 3.82147 17.8452C4.13403 18.1577 4.55795 18.3333 4.99998 18.3333H15C15.442 18.3333 15.8659 18.1577 16.1785 17.8452C16.4911 17.5326 16.6666 17.1087 16.6666 16.6667V10" stroke={stroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M13.3334 5.00008L10 1.66675L6.66669 5.00008" stroke={stroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <Path d="M10 1.66675V12.5001" stroke={stroke} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </Svg>
 }
 
