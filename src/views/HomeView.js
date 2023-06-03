@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
 	SafeAreaView,
 	FlatList,
@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import Header from "../components/Header";
 import Filter from "../components/Filter";
+import API from "../requests";
 
 import { Post } from "../components/Post";
 
@@ -45,6 +46,7 @@ function FilterButton({ title, onPress }) {
 
 export default function HomeView() {
 	const [posts, setPots] = useState([]);
+	const [isVisible, setVisible] = useState(false);
 
 	const fetchPosts = async () => {
 		const { data } = await API.get("posts/");
@@ -65,31 +67,7 @@ export default function HomeView() {
 					Platform.OS === "android" ? StatusBar.currentHeight : 0,
 			}}
 		>
-			<Header></Header>
-			<Filter></Filter>
-			<FlatList
-				data={posts}
-				renderItem={({ item }) => <Post item={item} />}
-				style={{ width: "100%" }}
-				refreshControl={<RefreshControl />}
-			/>
-		</SafeAreaView>
-	);
-	const [isVisible, setVisible] = useState(false);
-
-	const DATA = [{}, {}, {}, {}, {}];
-
-	return (
-		<SafeAreaView
-			style={{
-				flex: 1,
-				backgroundColor: "#fff",
-				alignItems: "center",
-				paddingTop:
-					Platform.OS === "android" ? StatusBar.currentHeight : 0,
-			}}
-		>
-			<Modal
+      <Modal
 				animationType={"slide"}
 				presentationStyle={"overFullScreen"}
 				transparent={true}
@@ -224,8 +202,8 @@ export default function HomeView() {
 				onPress={() => setVisible((prevState) => !prevState)}
 			></Filter>
 			<FlatList
-				data={DATA}
-				renderItem={({ item }) => <Post />}
+				data={posts}
+				renderItem={({ item }) => <Post item={item} />}
 				style={{ width: "100%" }}
 				refreshControl={<RefreshControl />}
 			/>
