@@ -1,10 +1,10 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import { FilterSvg } from "../SvgIcons";
 
-export default function Filter() {
-  function FilterButton({ name, children }) {
+export default function Filter(props) {
+  function FilterButton({ name, children, onPress }) {
     return (
-      <View
+      <TouchableOpacity
         style={{
           borderWidth: 1,
           borderRadius: 50,
@@ -12,6 +12,7 @@ export default function Filter() {
           paddingVertical: 3,
           marginRight: 8,
         }}
+        onPress={onPress}
       >
         <Text
           style={{
@@ -22,7 +23,7 @@ export default function Filter() {
         >
           {name}{children}
         </Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 
@@ -36,7 +37,7 @@ export default function Filter() {
       }}
     >
       <View style={{ flexDirection: "row", justifyContent: 'space-between', alignItems: 'center' }}>
-        <FilterButton name='Filtruj'> <FilterSvg /></FilterButton>
+        <FilterButton name='Filtruj' onPress={props.onPress}> <FilterSvg /></FilterButton>
         <Text style={{fontFamily: 'Helvetica', color: '#595959'}}>Znaleziono 15 wyników</Text>
       </View>
     </View>
