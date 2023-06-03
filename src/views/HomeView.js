@@ -45,12 +45,12 @@ function FilterButton({ title, onPress }) {
 }
 
 export default function HomeView() {
-	const [posts, setPots] = useState([]);
+	const [posts, setPosts] = useState([]);
 	const [isVisible, setVisible] = useState(false);
 
 	const fetchPosts = async () => {
 		const { data } = await API.get("posts/");
-		setPots(data);
+		setPosts(data);
 	};
 
 	useEffect(() => {
