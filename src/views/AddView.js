@@ -44,129 +44,123 @@ export default function AddView({ route, navigation }) {
         title='Add new post'
         onPress={() => navigation.goBack()}
       />
-      <View style={{ paddingHorizontal: 28 }}>
-        <Text
-          style={{
-            fontSize: 18,
-            fontFamily: "Helvetica",
-            color: "#000000",
-          }}
-        >
-          Tytuł
-        </Text>
-        <TextInput
-          style={{
-            borderWidth: 1,
-            padding: 10,
-            borderColor: "#979797",
-            borderRadius: 8,
-            fontSize: 18,
-          }}
-          placeholder='Tytuł'
-        ></TextInput>
-
-        <Text
-          style={{
-            fontSize: 18,
-            fontFamily: "Helvetica",
-            color: "#000000",
-            marginTop: 10,
-          }}
-        >
-          Opis
-        </Text>
-        <TextInput
-          style={{
-            borderWidth: 1,
-            padding: 10,
-            borderColor: "#979797",
-            borderRadius: 8,
-            fontSize: 18,
-            textAlignVertical: "top",
-            minHeight: 100,
-          }}
-          placeholder='Opis'
-          multiline={true}
-          numberOfLines={3}
-        ></TextInput>
-
-
-        {image ? <Pressable
-          style={{
-            backgroundColor: '#EFF3EF',
-            height: 80,
-            borderWidth: 1,
-            borderColor: "#588157",
-            marginTop: 20,
-            borderRadius: 8,
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-          }}
-          onPress={pickImage}
-        >
+      <View style={{ paddingHorizontal: 28, justifyContent: "space-between", height: '100%' }}>
+        <View>
           <Text
             style={{
               fontSize: 18,
               fontFamily: "Helvetica",
-              color: "#588157",
-              marginLeft: 8,
+              color: "#000000",
             }}
           >
-            Photo uploaded
+            Tytuł
           </Text>
-        </Pressable> : <Pressable
-          style={{
-            height: 80,
-            borderWidth: 1,
-            borderColor: "#979797",
-            marginTop: 20,
-            borderRadius: 8,
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "row",
-          }}
-          onPress={pickImage}
-        >
-          <ShareSvg stroke='#979797' />
+          <TextInput
+            style={{
+              borderWidth: 1,
+              padding: 10,
+              borderColor: "#979797",
+              borderRadius: 8,
+              fontSize: 18,
+            }}
+            placeholder='Tytuł'
+          ></TextInput>
+
           <Text
             style={{
               fontSize: 18,
               fontFamily: "Helvetica",
-              color: "#979797",
-              marginLeft: 8,
+              color: "#000000",
+              marginTop: 10,
             }}
           >
-            Upload a photo
+            Opis
           </Text>
-        </Pressable>}
-        
-        
-        {/* <Pressable
+          <TextInput
+            style={{
+              borderWidth: 1,
+              padding: 10,
+              borderColor: "#979797",
+              borderRadius: 8,
+              fontSize: 18,
+              textAlignVertical: "top",
+              minHeight: 100,
+            }}
+            placeholder='Opis'
+            multiline={true}
+            numberOfLines={3}
+          ></TextInput>
+
+          {image ? (
+            <Pressable
+              style={{
+                backgroundColor: "#EFF3EF",
+                height: 80,
+                borderWidth: 1,
+                borderColor: "#588157",
+                marginTop: 20,
+                borderRadius: 8,
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "row",
+              }}
+              onPress={pickImage}
+            >
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontFamily: "Helvetica",
+                  color: "#588157",
+                  marginLeft: 8,
+                }}
+              >
+                Photo uploaded
+              </Text>
+            </Pressable>
+          ) : (
+            <Pressable
+              style={{
+                height: 80,
+                borderWidth: 1,
+                borderColor: "#979797",
+                marginTop: 20,
+                borderRadius: 8,
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "row",
+              }}
+              onPress={pickImage}
+            >
+              <ShareSvg stroke='#979797' />
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontFamily: "Helvetica",
+                  color: "#979797",
+                  marginLeft: 8,
+                }}
+              >
+                Upload a photo
+              </Text>
+            </Pressable>
+          )}
+        </View>
+
+        <Pressable
           style={{
-            height: 80,
-            borderWidth: 1,
-            borderColor: "#979797",
-            marginTop: 20,
+            height: 50,
+            width: "100%",
             borderRadius: 8,
+            backgroundColor: "#60A155",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "row",
+            marginBottom: 150
           }}
-          onPress={pickImage}
         >
-          <ShareSvg stroke='#979797' />
-          <Text
-            style={{
-              fontSize: 18,
-              fontFamily: "Helvetica",
-              color: "#979797",
-              marginLeft: 8,
-            }}
-          >
-            Upload a photo
+          <Text style={{ color: "#FFFFFF", fontFamily: "Helvetica" }}>
+            Wyślij
           </Text>
-        </Pressable> */}
+        </Pressable>
       </View>
     </SafeAreaView>
   );
