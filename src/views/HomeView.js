@@ -45,17 +45,24 @@ function FilterButton({ title, onPress }) {
 }
 
 export default function HomeView() {
-	const [posts, setPots] = useState([]);
+	const [posts, setPosts] = useState([]);
+	const [isRefreshing, setRefreshing] = useState(false);
 	const [isVisible, setVisible] = useState(false);
 
 	const fetchPosts = async () => {
 		const { data } = await API.get("posts/");
-		setPots(data);
+		setPosts(data);
 	};
 
 	useEffect(() => {
 		fetchPosts();
 	}, []);
+
+	function onRefresh() {
+		setRefreshing(true);
+		fetchPosts();
+		setTimeout(() => setRefreshing(false), 2000);
+	}
 
 	return (
 		<SafeAreaView
@@ -205,7 +212,7 @@ export default function HomeView() {
 				data={posts}
 				renderItem={({ item }) => <Post item={item} />}
 				style={{ width: "100%" }}
-				refreshControl={<RefreshControl />}
+				refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh}/>}
 			/>
 		</SafeAreaView>
 	);
