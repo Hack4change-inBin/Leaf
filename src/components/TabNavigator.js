@@ -94,8 +94,8 @@ export default function TabNavigator() {
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <TabBar {...props} />}
     >
-      <Tab.Screen name='Map' component={MapView}></Tab.Screen>
       <Tab.Screen name='Home' component={HomeView}></Tab.Screen>
+      <Tab.Screen name='Map' component={MapView}></Tab.Screen>
       <Tab.Screen name='Add' component={AddView}></Tab.Screen>
       <Tab.Screen name='Leaderboard' component={LeaderboardView}></Tab.Screen>
       <Tab.Screen name='Settings' component={SettingsView}></Tab.Screen>

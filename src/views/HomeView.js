@@ -9,7 +9,12 @@ export default function HomeView() {
     const DATA = [{}, {}, {}, {}, {}];
   
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={{
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      }}>
         <Header></Header>
         <Filter></Filter>
         <FlatList
@@ -21,13 +26,3 @@ export default function HomeView() {
       </SafeAreaView>
     );
 }
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    },
-  });
-  
