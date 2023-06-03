@@ -29,6 +29,7 @@ export function HeaderBackArrow({ title, onPress }) {
         height: 110,
         alignItems: "center",
         flexDirection: "row",
+        paddingHorizontal: 28,
       }}
     >
       <TouchableOpacity onPress={onPress}>

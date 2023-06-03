@@ -1,4 +1,5 @@
 import {
+  View,
   SafeAreaView,
   Platform,
   StatusBar,
@@ -13,7 +14,7 @@ export default function AddView({ route, navigation }) {
       style={{
         flex: 1,
         backgroundColor: "#fff",
-        paddingHorizontal: 28,
+        
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
@@ -21,6 +22,7 @@ export default function AddView({ route, navigation }) {
         title='Add new post'
         onPress={() => navigation.goBack()}
       />
+      <View style={{paddingHorizontal: 28}}>
       <Text
         style={{
           fontSize: 18,
@@ -36,7 +38,7 @@ export default function AddView({ route, navigation }) {
           padding: 10,
           borderColor: "#979797",
           borderRadius: 8,
-          fontSize: 18,
+          fontSize: 18
         }}
         placeholder='Tytuł'
       ></TextInput>
@@ -59,11 +61,14 @@ export default function AddView({ route, navigation }) {
           borderRadius: 8,
           fontSize: 18,
           textAlignVertical: "top",
+          minHeight: 100
         }}
         placeholder='Opis'
         multiline={true}
         numberOfLines={3}
       ></TextInput>
+      </View>
+      
 
       
     </SafeAreaView>
