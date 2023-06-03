@@ -88,3 +88,9 @@ export function BackArrowSvg() {
         <Path d="M12 22L2 12L12 2" stroke="black" stroke-width="2.85714" stroke-linecap="round" stroke-linejoin="round"/>
     </Svg>
 }
+
+export function FilterSvg() {
+    return <Svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <Path d="M13 0.600098H1L5.8 6.2761V10.2001L8.2 11.4001V6.2761L13 0.600098Z" stroke="#232323" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </Svg>
+}

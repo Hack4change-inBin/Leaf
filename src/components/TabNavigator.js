@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity,Platform } from "react-native";
 
 import {
     HomeSvg,
@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 
 function TabBar({ state, descriptors, navigation }) {
   return (
-    <View style={{ flexDirection: 'row', height: 80 }}>
+    <View style={{ flexDirection: 'row', height: Platform.OS == 'ios' ? 100 : 80 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =

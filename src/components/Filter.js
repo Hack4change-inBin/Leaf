@@ -1,14 +1,16 @@
 import { View, Text } from "react-native";
+import { FilterSvg } from "../SvgIcons";
+import { BlurView } from 'expo-blur';
 
 export default function Filter() {
-  function FilterButton({ name }) {
+  function FilterButton({ name, children }) {
     return (
       <View
         style={{
           borderWidth: 1,
           borderRadius: 50,
           paddingHorizontal: 8,
-          paddingVertical: 6,
+          paddingVertical: 2,
           marginRight: 8,
         }}
       >
@@ -17,11 +19,9 @@ export default function Filter() {
             fontSize: 16,
             fontFamily: "Helvetica",
             color: "#000",
-            lineHeight: 18,
-            marginBottom: -4,
           }}
         >
-          {name}
+          {name}{children}
         </Text>
       </View>
     );
@@ -36,20 +36,8 @@ export default function Filter() {
         paddingVertical: 24,
       }}
     >
-      <Text
-        style={{
-          fontSize: 20,
-          fontFamily: "HelveticaBold",
-          color: "#000000",
-          lineHeight: 20,
-        }}
-      >
-        Sort
-      </Text>
-      <View style={{ flexDirection: "row", marginTop: 6 }}>
-        <FilterButton name='Ostatnie' clicked></FilterButton>
-        <FilterButton name='Popularne'></FilterButton>
-        <FilterButton name='Najbliżej'></FilterButton>
+      <View style={{ flexDirection: "row" }}>
+        <FilterButton name='Filtruj'> <FilterSvg /></FilterButton>
       </View>
     </View>
   );
