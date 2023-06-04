@@ -19,10 +19,11 @@ export default function AddView({ route, navigation }) {
 	const [description, setDescription] = useState("");
 
 	async function uploadPost() {
-		console.log("Hello World");
+		console.log(title);
+		// console.log(description);
 		const formData = new FormData();
 		formData.append("image", {
-			name: image.fileName,
+			name: "test.jpg",
 			type: image.type,
 			uri: image.uri,
 		});
@@ -31,11 +32,12 @@ export default function AddView({ route, navigation }) {
 		formData.append("category", 1);
 		formData.append("point_x", 42.23);
 		formData.append("point_y", 21.22);
-		API.post("posts/", formData, {
+		const { data } = await API.post("posts/", formData, {
 			headers: {
 				"Content-Type": "multipart/form-data",
 			},
 		});
+		console.log(data);
 	}
 
 	const pickImage = async () => {
@@ -88,7 +90,7 @@ export default function AddView({ route, navigation }) {
 					}}
 					placeholder="Tytuł"
 					value={title}
-					onChange={setTitle}
+					onChangeText={setTitle}
 				></TextInput>
 
 				<Text
@@ -115,7 +117,7 @@ export default function AddView({ route, navigation }) {
 					multiline={true}
 					numberOfLines={3}
 					value={description}
-					onChange={setDescription}
+					onChangeText={setDescription}
 				></TextInput>
 
 				{image ? (

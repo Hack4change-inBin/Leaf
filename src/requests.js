@@ -7,6 +7,10 @@ const API = axios.create({
 	validateStatus: function (status) {
 		return status < 500;
 	},
+	headers: {
+		Authorization:
+			"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyb2xhbmRzb2JjemFrQGdtYWlsLmNvbSIsImV4cCI6MTY4NTg3NzM5OX0.WK1JXez3ZhSlFMvPWrnosE84SVeoaopYdcUJjzscJfw",
+	},
 });
 
 export default API;
