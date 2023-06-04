@@ -11,11 +11,26 @@ import {
 import { HeaderBackArrow } from "../components/Header";
 import { ShareSvg } from "../SvgIcons";
 import * as ImagePicker from "expo-image-picker";
+import API from "../requests";
 
 export default function AddView({ route, navigation }) {
 	const [image, setImage] = useState(null);
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
+
+	const uploadPost = async () => {
+		const formData = new FormData();
+		formData.append("image", image);
+		formData.append("category", 1);
+		formData.append("point_x", 42.23);
+		formData.append("point_y", 21.22);
+		const { data } = await API.post("posts/", formData, {
+			headers: {
+				"Content-Type": "multipart/form-data",
+			},
+		});
+		console.log(data);
+	};
 
 	const pickImage = async () => {
 		// No permissions request is necessary for launching the image library
@@ -150,6 +165,9 @@ export default function AddView({ route, navigation }) {
 						</Text>
 					</Pressable>
 				)}
+				<Pressable onPress={uploadPost}>
+					<Text>Zapisz!</Text>
+				</Pressable>
 			</View>
 		</SafeAreaView>
 	);
