@@ -5,12 +5,13 @@ import {
 	ShareSvg,
 	CommentSvg,
 } from "../SvgIcons";
+import { baseURL } from "../requests";
 
 export function Post({ item }) {
 	const data = {
 		name: item.user,
 		time: item.created_at,
-		image: require("../../assets/images/example-post.png"),
+		image: item.image,
 		leaves: 673,
 		comments: 23,
 		liked: true,
@@ -60,8 +61,9 @@ export function Post({ item }) {
 					marginTop: 5,
 					borderRadius: 10,
 				}}
-				source={data.image}
+				source={{ uri: baseURL + data.image }}
 			></Image>
+			{console.log(baseURL + data.image)}
 			<View
 				style={{
 					width: "100%",
