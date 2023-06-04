@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   Pressable,
+  ScrollView,
 } from "react-native";
 import { HeaderBackArrow } from "../components/Header";
 import { ShareSvg } from "../SvgIcons";
@@ -44,7 +45,13 @@ export default function AddView({ route, navigation }) {
         title='Dodaj nowy post'
         onPress={() => navigation.goBack()}
       />
-      <View style={{ paddingHorizontal: 28, justifyContent: "space-between", height: '100%' }}>
+      <ScrollView
+        style={{
+          paddingHorizontal: 28,
+
+          height: "100%",
+        }}
+      >
         <View>
           <Text
             style={{
@@ -146,22 +153,24 @@ export default function AddView({ route, navigation }) {
           )}
         </View>
 
-        <Pressable
-          style={{
-            height: 50,
-            width: "100%",
-            borderRadius: 8,
-            backgroundColor: "#60A155",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: 150
-          }}
-        >
-          <Text style={{ color: "#FFFFFF", fontFamily: "Helvetica" }}>
-            Wyślij
-          </Text>
-        </Pressable>
-      </View>
+        <View style={{marginTop: 20}}>
+          <Pressable
+            style={{
+              height: 50,
+              width: "100%",
+              borderRadius: 8,
+              backgroundColor: "#60A155",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: 150,
+            }}
+          >
+            <Text style={{ color: "#FFFFFF", fontFamily: "Helvetica" }}>
+              Wyślij
+            </Text>
+          </Pressable>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
