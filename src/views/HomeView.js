@@ -16,6 +16,7 @@ import { FilterSvg } from "../SvgIcons";
 import Header from "../components/Header";
 import Filter from "../components/Filter";
 import API from "../requests";
+import { Slider } from "@miblanchard/react-native-slider";
 
 import { Post } from "../components/Post";
 
@@ -49,6 +50,7 @@ export default function HomeView() {
   const [posts, setPosts] = useState([]);
   const [isRefreshing, setRefreshing] = useState(false);
   const [isVisible, setVisible] = useState(false);
+  const [locationRange, setLocationRange] = useState(5);
 
   const fetchPosts = async () => {
     const { data } = await API.get("posts/");
@@ -145,7 +147,34 @@ export default function HomeView() {
           >
             Lokalizacja
           </Text>
-					{/* <Slider></Slider> */}
+          <View style={{marginHorizontal: 28}}>
+            <Slider
+              value={locationRange}
+              onValueChange={setLocationRange}
+              minimumValue={5}
+              maximumValue={30}
+              step={5}
+            />
+            <View style={{flexDirection: "row", justifyContent: 'space-between'}}>
+              <Text style={{width: 24, textAlign: 'center'}}>5</Text>
+              <Text style={{width: 24, textAlign: 'center'}}>10</Text>
+              <Text style={{width: 24, textAlign: 'center'}}>15</Text>
+              <Text style={{width: 24, textAlign: 'center'}}>20</Text>
+              <Text style={{width: 24, textAlign: 'center'}}>25</Text>
+              <Text style={{width: 24, textAlign: 'center'}}>30+</Text>
+            </View>
+          </View>
+          <Text
+            style={{
+              fontSize: 18,
+              fontFamily: "HelveticaBold",
+              color: "#000000",
+              marginLeft: 28,
+              marginTop: 20,
+            }}
+          >
+            Status
+          </Text>
           <View
             style={{
               flexDirection: "row",
@@ -204,7 +233,7 @@ export default function HomeView() {
           </View>
         </View>
       </Modal>
-			<Header></Header>
+      <Header></Header>
 
       <View
         style={{
