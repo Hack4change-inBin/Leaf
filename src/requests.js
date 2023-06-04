@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const baseUrl = "http://localhost:8000/";
+
 const API = axios.create({
-	baseURL: "http://34.116.198.24/",
+	baseURL: baseUrl,
 	validateStatus: function (status) {
 		return status < 500;
 	},
