@@ -1,42 +1,59 @@
 import { useState } from "react";
 import {
-  View,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-  Text,
-  TextInput,
-  Pressable,
+	View,
+	SafeAreaView,
+	Platform,
+	StatusBar,
+	Text,
+	TextInput,
+	Pressable,
   ScrollView,
 } from "react-native";
 import { HeaderBackArrow } from "../components/Header";
 import { ShareSvg } from "../SvgIcons";
 import * as ImagePicker from "expo-image-picker";
+import API from "../requests";
 
 export default function AddView({ route, navigation }) {
-  const [image, setImage] = useState(null);
+	const [image, setImage] = useState(null);
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+	const uploadPost = async () => {
+		const formData = new FormData();
+		formData.append("image", image);
+		formData.append("category", 1);
+		formData.append("point_x", 42.23);
+		formData.append("point_y", 21.22);
+		const { data } = await API.post("posts/", formData, {
+			headers: {
+				"Content-Type": "multipart/form-data",
+			},
+		});
+		console.log(data);
+	};
 
-    console.log(result);
+	const pickImage = async () => {
+		// No permissions request is necessary for launching the image library
+		let result = await ImagePicker.launchImageLibraryAsync({
+			mediaTypes: ImagePicker.MediaTypeOptions.Images,
+			allowsEditing: true,
+			aspect: [4, 3],
+			quality: 1,
+		});
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-    }
-  };
+		console.log(result);
 
-  return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: "#fff",
+		if (!result.canceled) {
+			setImage(result.assets[0].uri);
+		}
+	};
+
+	return (
+		<SafeAreaView
+			style={{
+				flex: 1,
+				backgroundColor: "#fff",
 
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
@@ -73,30 +90,32 @@ export default function AddView({ route, navigation }) {
             placeholder='Tytuł'
           ></TextInput>
 
-          <Text
-            style={{
-              fontSize: 18,
-              fontFamily: "Helvetica",
-              color: "#000000",
-              marginTop: 10,
-            }}
-          >
-            Opis
-          </Text>
-          <TextInput
-            style={{
-              borderWidth: 1,
-              padding: 10,
-              borderColor: "#979797",
-              borderRadius: 8,
-              fontSize: 18,
-              textAlignVertical: "top",
-              minHeight: 100,
-            }}
-            placeholder='Opis'
-            multiline={true}
-            numberOfLines={3}
-          ></TextInput>
+				<Text
+					style={{
+						fontSize: 18,
+						fontFamily: "Helvetica",
+						color: "#000000",
+						marginTop: 10,
+					}}
+				>
+					Opis
+				</Text>
+				<TextInput
+					style={{
+						borderWidth: 1,
+						padding: 10,
+						borderColor: "#979797",
+						borderRadius: 8,
+						fontSize: 18,
+						textAlignVertical: "top",
+						minHeight: 100,
+					}}
+					placeholder="Opis"
+					multiline={true}
+					numberOfLines={3}
+					value={description}
+					onChange={setDescription}
+				></TextInput>
 
           {image ? (
             <Pressable

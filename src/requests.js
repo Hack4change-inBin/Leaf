@@ -1,9 +1,15 @@
 import axios from "axios";
 
+export const baseUrl = "http://localhost:8000/";
+
 const API = axios.create({
-	baseURL: "http://34.116.198.24/",
+	baseURL: baseUrl,
 	validateStatus: function (status) {
 		return status < 500;
+	},
+	headers: {
+		Authorization:
+			"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyb2xhbmRzb2JjemFrQGdtYWlsLmNvbSIsImV4cCI6MTY4NTg1ODQxOX0.iCQorl_nU8lYYAI9e7xweHWlsXawML6hhZ-4Fw_WAMU",
 	},
 });
 
