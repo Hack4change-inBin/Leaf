@@ -145,7 +145,7 @@ export default function HomeView() {
           >
             Lokalizacja
           </Text>
-
+					{/* <Slider></Slider> */}
           <View
             style={{
               flexDirection: "row",
