@@ -41,7 +41,7 @@ export default function AddView({ route, navigation }) {
       }}
     >
       <HeaderBackArrow
-        title='Add new post'
+        title='Dodaj nowy post'
         onPress={() => navigation.goBack()}
       />
       <View style={{ paddingHorizontal: 28, justifyContent: "space-between", height: '100%' }}>
@@ -114,7 +114,7 @@ export default function AddView({ route, navigation }) {
                   marginLeft: 8,
                 }}
               >
-                Photo uploaded
+                Zdjęcie wysłane
               </Text>
             </Pressable>
           ) : (
@@ -140,7 +140,7 @@ export default function AddView({ route, navigation }) {
                   marginLeft: 8,
                 }}
               >
-                Upload a photo
+                Wybierz zdjęcie
               </Text>
             </Pressable>
           )}
