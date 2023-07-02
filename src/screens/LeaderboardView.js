@@ -13,7 +13,7 @@ import {
 
 import Header from "../components/Header";
 import Filter from "../components/Filter";
-import { LeafActiveSvg } from "../SvgIcons";
+import { LeafActiveSvg } from "../components/SvgIcons";
 
 function LeaderboardItem({ index }) {
   return (

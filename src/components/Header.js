@@ -1,5 +1,5 @@
 import { View, Image, Text, TouchableOpacity } from "react-native";
-import { BackArrowSvg, HeaderLogoSvg } from "../SvgIcons";
+import { BackArrowSvg, HeaderLogoSvg } from "./SvgIcons";
 
 export default function Header() {
   return (

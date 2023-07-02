@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 
 import { NavigationContainer } from "@react-navigation/native";
-import TabNavigator from "./src/components/TabNavigator";
+import TabNavigator from "./src/navigation/TabNavigator";
 
 export default function App() {
   const [loadedFonts] = useFonts({

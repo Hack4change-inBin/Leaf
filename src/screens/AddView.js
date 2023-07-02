@@ -9,9 +9,9 @@ import {
 	Pressable,
 } from "react-native";
 import { HeaderBackArrow } from "../components/Header";
-import { ShareSvg } from "../SvgIcons";
+import { ShareSvg } from "../components/SvgIcons";
 import * as ImagePicker from "expo-image-picker";
-import API from "../requests";
+import API from "../services/API";
 
 export default function AddView({ route, navigation }) {
 	const [image, setImage] = useState(null);

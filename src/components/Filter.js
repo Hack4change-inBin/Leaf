@@ -1,5 +1,5 @@
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
-import { FilterSvg } from "../SvgIcons";
+import { FilterSvg } from "./SvgIcons";
 export default function Filter() {
 	function FilterButton({ name, children }) {
 		return (

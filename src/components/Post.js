@@ -4,8 +4,8 @@ import {
 	LeafInactiveSvg,
 	ShareSvg,
 	CommentSvg,
-} from "../SvgIcons";
-import { baseURL } from "../requests";
+} from "./SvgIcons";
+import { baseURL } from "../services/API";
 
 export function Post({ item }) {
 	const data = {
