@@ -4,7 +4,7 @@ import {
 	LeafInactiveSvg,
 	ShareSvg,
 	CommentSvg,
-} from "../SvgIcons";
+} from "./SvgIcons";
 import { baseURL } from "../requests";
 
 export function Post({ item }) {

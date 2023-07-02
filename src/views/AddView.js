@@ -9,7 +9,7 @@ import {
 	Pressable,
 } from "react-native";
 import { HeaderBackArrow } from "../components/Header";
-import { ShareSvg } from "../SvgIcons";
+import { ShareSvg } from "../components/SvgIcons";
 import * as ImagePicker from "expo-image-picker";
 import API from "../requests";
 

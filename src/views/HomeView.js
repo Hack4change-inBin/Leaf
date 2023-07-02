@@ -12,7 +12,7 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { FilterSvg } from "../SvgIcons";
+import { FilterSvg } from "../components/SvgIcons";
 import Header from "../components/Header";
 import Filter from "../components/Filter";
 import API from "../requests";
