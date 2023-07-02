@@ -5,7 +5,7 @@ import {
 	ShareSvg,
 	CommentSvg,
 } from "./SvgIcons";
-import { baseURL } from "../requests";
+import { baseURL } from "../services/API";
 
 export function Post({ item }) {
 	const data = {

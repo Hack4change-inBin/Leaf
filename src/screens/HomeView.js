@@ -15,7 +15,7 @@ import {
 import { FilterSvg } from "../components/SvgIcons";
 import Header from "../components/Header";
 import Filter from "../components/Filter";
-import API from "../requests";
+import API from "../services/API";
 
 import { Post } from "../components/Post";
 

@@ -7,13 +7,13 @@ import {
     MapSvg,
     AddSvg,
     SettingsSvg,
-} from "../SvgIcons";
+} from "../components/SvgIcons";
 
-import HomeView from "../views/HomeView";
-import SettingsView from "../views/SettingsView";
-import AddView from "../views/AddView";
-import LeaderboardView from "../views/LeaderboardView";
-import MapView from "../views/MapView";
+import HomeView from "../screens/HomeView";
+import SettingsView from "../screens/SettingsView";
+import AddView from "../screens/AddView";
+import LeaderboardView from "../screens/LeaderboardView";
+import MapView from "../screens/MapView";
 
 const Tab = createBottomTabNavigator();
 
