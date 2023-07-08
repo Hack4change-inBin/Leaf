@@ -1,6 +1,6 @@
-import { Platform, SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import { Platform, SafeAreaView, StatusBar, StyleSheet, ViewProps } from "react-native";
 
-export default function Wrapper({ style, ...props }) {
+export default function Wrapper({ style, ...props } : ViewProps) {
     return <SafeAreaView style={[styles.wrapper, style]} {...props} />;
 }
 
