@@ -6,6 +6,7 @@ import LeaderboardView from "../screens/LeaderboardView";
 import MapView from "../screens/MapView";
 import SettingsView from "../screens/SettingsView";
 import TabBar from "./TabBar";
+import { StyleSheet, Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,3 +24,33 @@ export default function TabNavigator() {
         </Tab.Navigator>
     );
 }
+
+export const stylesBase = StyleSheet.create({
+    centered: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    iconBase: {
+        width: 42,
+        height: 42,
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+});
+
+export const styles = StyleSheet.create({
+    tabBarContainer: {
+        flexDirection: "row",
+        height: Platform.OS == "ios" ? 100 : 80,
+    },
+    icon: {
+        ...stylesBase.iconBase,
+        backgroundColor: "#FFFFFF",
+    },
+    iconFocused: {
+        ...stylesBase.iconBase,
+        backgroundColor: "rgba(96, 161, 85, 0.3)",
+    },
+});
