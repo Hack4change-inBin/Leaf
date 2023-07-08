@@ -61,7 +61,7 @@ export function TabBarButton({ route, index, state, descriptors, navigation }) {
             style={stylesBase.centered}
             key={label}
         >
-            <View style={isFocused ? styles.iconFocused : styles.icon}>
+            <View style={isFocused ? styles.tabBarIconFocused : styles.tabBarIcon}>
                 <Icon icon={label}></Icon>
             </View>
         </TouchableOpacity>

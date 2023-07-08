@@ -45,11 +45,11 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         height: Platform.OS == "ios" ? 100 : 80,
     },
-    icon: {
+    tabBarIcon: {
         ...stylesBase.iconBase,
         backgroundColor: "#FFFFFF",
     },
-    iconFocused: {
+    tabBarIconFocused: {
         ...stylesBase.iconBase,
         backgroundColor: "rgba(96, 161, 85, 0.3)",
     },

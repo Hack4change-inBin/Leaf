@@ -241,7 +241,7 @@ export default function HomeView() {
 
       <FlatList
         data={posts}
-        renderItem={({ item }) => <Post item={item} />}
+        renderItem={({ item }) => <Post data={item} />}
         style={{ width: "100%" }}
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
