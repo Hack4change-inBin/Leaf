@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import AddView from "../screens/AddView";
-import HomeView from "../screens/HomeView";
-import LeaderboardView from "../screens/LeaderboardView";
-import MapView from "../screens/MapView";
-import SettingsView from "../screens/SettingsView";
-import TabBar from "./TabBar";
+import AddView from "@/screens/AddView";
+import HomeView from "@/screens/HomeView";
+import LeaderboardView from "@/screens/LeaderboardView";
+import MapView from "@/screens/MapView";
+import SettingsView from "@/screens/SettingsView";
+import TabBar from "@/components/TabBar/TabBar";
 import { StyleSheet, Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();

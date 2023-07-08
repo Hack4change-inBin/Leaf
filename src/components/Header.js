@@ -1,5 +1,5 @@
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { BackArrowSvg, HeaderLogoSvg } from "./SvgIcons";
+import { BackArrowSvg, HeaderLogoSvg } from "./common/SvgIcons";
 
 export default function Header() {
     const image = require("../../assets/images/example-profile-avatar.png");

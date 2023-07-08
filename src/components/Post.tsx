@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native";
-import { LeafActiveSvg, LeafInactiveSvg, ShareSvg, CommentSvg } from "./SvgIcons";
-import { baseURL } from "../services/API";
+import { LeafActiveSvg, LeafInactiveSvg, ShareSvg, CommentSvg } from "@/components/common/SvgIcons";
+import { baseURL } from "@/services/API";
 
 const styles = StyleSheet.create({
     postContainer: {

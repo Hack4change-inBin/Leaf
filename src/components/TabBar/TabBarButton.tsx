@@ -5,8 +5,8 @@ import {
     LeaderboardSvg,
     MapSvg,
     SettingsSvg
-} from "../components/SvgIcons";
-import { styles, stylesBase } from "./TabNavigator";
+} from "../common/SvgIcons";
+import { styles, stylesBase } from "../../navigation/TabNavigator";
 
 export function TabBarButton({ route, index, state, descriptors, navigation }) {
     const { options } = descriptors[route.key];

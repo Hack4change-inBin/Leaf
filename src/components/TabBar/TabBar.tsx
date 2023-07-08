@@ -2,8 +2,8 @@ import { View } from "react-native";
 
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 
-import { TabBarButton } from "./TabBarButton";
-import { styles } from "./TabNavigator";
+import { TabBarButton } from "@/components/TabBar/TabBarButton";
+import { styles } from "@/navigation/TabNavigator";
 
 export default function TabBar({
     state,
