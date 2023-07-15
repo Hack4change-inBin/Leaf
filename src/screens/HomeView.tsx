@@ -13,6 +13,12 @@ import { Post } from '@/components/Post';
 import useFetchPosts from '@/hooks/useFetchPosts';
 import API from '@/services/API';
 
+const stylesBase = StyleSheet.create({
+    flexRow: {
+        flexDirection: "row"
+    }
+})
+
 const styles = StyleSheet.create({
     filterContainer: {
         width: "100%",
@@ -35,16 +41,17 @@ const styles = StyleSheet.create({
 });
 
 export default function HomeView() {
-    const { posts, isRefreshing, onRefresh } = useFetchPosts();
+    const { posts, refreshing, onRefresh } = useFetchPosts();
     const [visible, setVisible] = useState(false);
 
     return (
         <Wrapper>
-            <FilterModal isVisible={visible} setVisible={setVisible} />
+            <FilterModal visible={visible} setVisible={setVisible} />
+
             <Header />
             
             <View style={styles.filterContainer}>
-                <View style={{ flexDirection: "row" }}>
+                <View style={stylesBase.flexRow}>
                     <TouchableOpacity style={styles.filterButton} onPress={() => setVisible(true)}>
                         <Text style={styles.filterButtonText}>
                             <FilterSvg />
@@ -58,7 +65,7 @@ export default function HomeView() {
                 data={posts}
                 renderItem={({ item }) => <Post data={item} />}
                 style={{ width: "100%" }}
-                refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />}
+                refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
             />
         </Wrapper>
     );

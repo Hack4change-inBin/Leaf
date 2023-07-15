@@ -4,11 +4,17 @@ import API from '@/services/API';
 
 export default function useFetchPosts() {
     const [posts, setPosts] = useState([]);
-    const isRefreshing = useRef(false);
+    const [refreshing, setRefreshing] = useState(false);
 
     async function fetchPosts() {
-        const { data } = await API.get("posts/");
-        setPosts(data);
+        try {
+            const { data } = await API.get("posts/")
+            setPosts(data);
+        } catch(error) {
+            console.log(error)
+            setPosts([])
+        }
+        setRefreshing(false)
     }
 
     useEffect(() => {
@@ -16,10 +22,9 @@ export default function useFetchPosts() {
     }, []);
 
     async function onRefresh() {
-        isRefreshing.current = true;
-        await fetchPosts();
-        isRefreshing.current = false;
+        setRefreshing(true);
+        fetchPosts();
     }
 
-    return { posts, setPosts, isRefreshing: isRefreshing.current, onRefresh };
+    return { posts, refreshing, onRefresh };
 }

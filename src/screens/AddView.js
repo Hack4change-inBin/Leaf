@@ -12,6 +12,7 @@ import { HeaderBackArrow } from "../components/Header";
 import { ShareSvg } from "../components/common/SvgIcons";
 import * as ImagePicker from "expo-image-picker";
 import API from "../services/API";
+import Wrapper from "@/components/common/Wrapper";
 
 export default function AddView({ route, navigation }) {
 	const [image, setImage] = useState(null);
@@ -57,20 +58,12 @@ export default function AddView({ route, navigation }) {
 	};
 
 	return (
-		<SafeAreaView
-			style={{
-				flex: 1,
-				backgroundColor: "#fff",
-
-				paddingTop:
-					Platform.OS === "android" ? StatusBar.currentHeight : 0,
-			}}
-		>
+		<Wrapper>
 			<HeaderBackArrow
 				title="Add new post"
 				onPress={() => navigation.goBack()}
 			/>
-			<View style={{ paddingHorizontal: 28 }}>
+			<View style={{flex: 1}}>
 				<Text
 					style={{
 						fontSize: 18,
@@ -194,6 +187,6 @@ export default function AddView({ route, navigation }) {
 					Wyślij
 				</Text>
 			</Pressable>
-		</SafeAreaView>
+		</Wrapper>
 	);
 }

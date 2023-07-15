@@ -26,13 +26,13 @@ export function FilterButton({ title, onPress }) {
     );
 }
 
-export function FilterModal({ isVisible, setVisible }) {
+export function FilterModal({ visible, setVisible }) {
     return (
         <Modal
             animationType={"slide"}
             presentationStyle={"overFullScreen"}
             transparent={true}
-            visible={isVisible}
+            visible={visible}
             onRequestClose={() => {
                 console.log("Modal has been closed.");
                 setVisible((prevState) => !prevState);
