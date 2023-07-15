@@ -1,24 +1,17 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from 'react';
 import {
-    SafeAreaView,
-    FlatList,
-    StyleSheet,
-    StatusBar,
-    RefreshControl,
-    Button,
-    View,
-    Text,
-    TouchableOpacity,
-    Platform,
-} from "react-native";
-import { FilterSvg } from "@/components/common/SvgIcons";
-import Header from "@/components/Header";
-import Filter from "@/components/Filter";
-import API from "@/services/API";
+    Button, FlatList, Platform, RefreshControl, SafeAreaView, StatusBar, StyleSheet, Text,
+    TouchableOpacity, View
+} from 'react-native';
 
-import { Post } from "@/components/Post";
-import Wrapper from "@/components/common/Wrapper";
-import { FilterModal } from "@/components/FilterModal";
+import { FilterSvg } from '@/components/common/SvgIcons';
+import Wrapper from '@/components/common/Wrapper';
+import Filter from '@/components/Filter';
+import { FilterModal } from '@/components/FilterModal';
+import Header from '@/components/Header';
+import { Post } from '@/components/Post';
+import useFetchPosts from '@/hooks/useFetchPosts';
+import API from '@/services/API';
 
 const styles = StyleSheet.create({
     filterContainer: {
@@ -42,29 +35,14 @@ const styles = StyleSheet.create({
 });
 
 export default function HomeView() {
-    const [posts, setPosts] = useState([]);
-    const [isVisible, setVisible] = useState(false);
-    const isRefreshing = useRef(false);
-
-    async function fetchPosts() {
-        const { data } = await API.get("posts/");
-        setPosts(data);
-    }
-
-    useEffect(() => {
-        fetchPosts();
-    }, []);
-
-    async function onRefresh() {
-        isRefreshing.current = true;
-        await fetchPosts();
-        isRefreshing.current = false;
-    }
+    const { posts, isRefreshing, onRefresh } = useFetchPosts();
+    const [visible, setVisible] = useState(false);
 
     return (
         <Wrapper>
-            <FilterModal isVisible={isVisible} setVisible={setVisible} />
+            <FilterModal isVisible={visible} setVisible={setVisible} />
             <Header />
+            
             <View style={styles.filterContainer}>
                 <View style={{ flexDirection: "row" }}>
                     <TouchableOpacity style={styles.filterButton} onPress={() => setVisible(true)}>
@@ -80,7 +58,7 @@ export default function HomeView() {
                 data={posts}
                 renderItem={({ item }) => <Post data={item} />}
                 style={{ width: "100%" }}
-                refreshControl={<RefreshControl refreshing={isRefreshing.current} onRefresh={onRefresh} />}
+                refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />}
             />
         </Wrapper>
     );
