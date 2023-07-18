@@ -1,4 +1,5 @@
 import { TouchableOpacity, View } from "react-native";
+import { stylesBaseTabNavigator, stylesTabNavigator } from "../../navigation/TabNavigator";
 import {
     AddSvg,
     HomeSvg,
@@ -6,7 +7,6 @@ import {
     MapSvg,
     SettingsSvg
 } from "../common/SvgIcons";
-import { styles, stylesBase } from "../../navigation/TabNavigator";
 
 export function TabBarButton({ route, index, state, descriptors, navigation }) {
     const { options } = descriptors[route.key];
@@ -58,10 +58,10 @@ export function TabBarButton({ route, index, state, descriptors, navigation }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={stylesBase.centered}
+            style={stylesBaseTabNavigator.centered}
             key={label}
         >
-            <View style={isFocused ? styles.tabBarIconFocused : styles.tabBarIcon}>
+            <View style={isFocused ? stylesTabNavigator.tabBarIconFocused : stylesTabNavigator.tabBarIcon}>
                 <Icon icon={label}></Icon>
             </View>
         </TouchableOpacity>

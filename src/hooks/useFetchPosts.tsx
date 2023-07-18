@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import API from '@/services/API';
 
@@ -11,7 +11,7 @@ export default function useFetchPosts() {
             const { data } = await API.get("posts/")
             setPosts(data);
         } catch(error) {
-            console.log(error)
+            console.error(error)
             setPosts([])
         }
         setRefreshing(false)

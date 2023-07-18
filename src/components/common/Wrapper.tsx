@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         backgroundColor: "#fff",
-        alignItems: "center",
+        alignItems: "stretch",
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     },
 });

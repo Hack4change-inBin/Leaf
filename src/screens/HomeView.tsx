@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import {
-    Button, FlatList, Platform, RefreshControl, SafeAreaView, StatusBar, StyleSheet, Text,
+    FlatList,
+    RefreshControl,
+    StyleSheet, Text,
     TouchableOpacity, View
 } from 'react-native';
 
 import { FilterSvg } from '@/components/common/SvgIcons';
 import Wrapper from '@/components/common/Wrapper';
-import Filter from '@/components/Filter';
 import { FilterModal } from '@/components/FilterModal';
 import Header from '@/components/Header';
 import { Post } from '@/components/Post';
 import useFetchPosts from '@/hooks/useFetchPosts';
-import API from '@/services/API';
 
 const stylesBase = StyleSheet.create({
     flexRow: {
